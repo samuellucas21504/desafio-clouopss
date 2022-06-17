@@ -1,0 +1,48 @@
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    background: #7A2671;
+    border-radius: 20px;
+    color: white;
+    width: 60%;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.client--contact_information {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.client--buttons {
+    height: 100%;
+}
+
+.client--delete, .client--update{
+    background: inherit;
+    border: none;
+    color: white;
+    font-weight: 600;
+    height: 100%;
+}
+
+.client--update {
+    border-radius: 0 10px 10px 0;
+    transition: .5s;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.client--delete {
+    border-radius: 10px 0 0 10px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.client--update:hover, .client--delete:hover {
+    background: #DCBAD4;
+}

@@ -1,0 +1,8 @@
+.clients {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-flow: column;
+    gap: 10px;
+    height: 100%;
+}
