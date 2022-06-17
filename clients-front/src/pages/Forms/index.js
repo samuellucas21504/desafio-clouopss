@@ -83,7 +83,6 @@ export default function Form() {
 						type="email"
 						name="email"
 						onChange={handleChange}
-						pattern="/^([A-Za-z]|[0-9])+$/"
 						value={formsData.email}
 					></input>
 				</p>
@@ -94,7 +93,6 @@ export default function Form() {
 						type="tel"
 						name="cellphone"
 						onChange={handleChange}
-						pattern="/^\+[1-9]{1}[0-9]{3,14}$/"
 						value={formsData.cellphone}
 					></input>
 				</p>

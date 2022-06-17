@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: dockerized-react-app
+    build:
+      context: ./clients-front
+      dockerfile: Dockerfile
+    volumes:
+      - './clients-front:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+  api:
+    build:
+      context: ./clients-api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+  mongo:
+    container_name: "clients-mongodb"
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db/
+volumes:
+  mongodb-data:
