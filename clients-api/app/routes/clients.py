@@ -22,7 +22,8 @@ async def get_clients():
 # POST METHOD
 @client.post('/clients', status_code=status.HTTP_201_CREATED)
 async def create_client(client: Client):
-
+    connClient = conn.get_database("clients")
+    connClient.get_collection("information").insert_one(dict(client))
     return clientsEntity(conn.clients.information.find())
 
 
