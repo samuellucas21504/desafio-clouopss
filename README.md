@@ -1,12 +1,9 @@
 # Desafio Cloudopss
 
-## TODO - GIT DOCUMENTATION
-
-Comandos de execução:
+Comandos para executar o programa:
 
 `chmod +x run-app-deploy.sh`
 
 `./run-app-deploy.sh`
 
-
-Desafio técnico.
+FrontEnd desenvolvido em React e backEnd desenvolvido em FastAPI com integração a mongoDB
