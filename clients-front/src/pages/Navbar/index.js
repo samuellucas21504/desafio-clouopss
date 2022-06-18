@@ -6,7 +6,7 @@ export default function Navbar() {
 	return (
 		<nav className="nav">
 			<Link to="/" className="nav--logo">
-				<i className="fa-solid fa-cloud fa-xl fa-beat"></i>
+				<i className="fa-solid fa-cloud fa-xl fa-beat" />
 			</Link>
 			<ul>
 				<CustomLink to="/cadastrados">Cadastrados</CustomLink>

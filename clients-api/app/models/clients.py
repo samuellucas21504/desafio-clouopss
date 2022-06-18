@@ -1,3 +1,4 @@
+import uuid
 from pydantic import BaseModel
 
 
@@ -7,4 +8,4 @@ class Client(BaseModel):
     cellphone: str
     address: str
     profession: str
-    #curriculum: str
+    image_uuid: str

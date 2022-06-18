@@ -15,11 +15,20 @@ export default function Client(props) {
 				<p>Endereço: {props.address}</p>
 				<p>Profissão: {props.profession}</p>
 			</div>
+			<div className="client--contact_information">
+				<p>Currículo:</p>
+				<button
+					className="client--download"
+					onClick={props.handleDownload}
+				>
+					<i class="fa fa-download fa-2xl" id={props.image_uuid} />
+				</button>
+			</div>
 			<div className="client--buttons">
 				<button
 					className="client--delete"
 					onClick={props.handleDelete}
-					name={props.id}
+					id={props.id}
 				>
 					Deletar
 				</button>

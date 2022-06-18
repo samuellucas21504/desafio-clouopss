@@ -6,7 +6,7 @@ def clientEntity(item) -> dict:
         "cellphone": item["cellphone"],
         "address": item["address"],
         "profession": item["profession"],
-        # "curriculum": item["curriculum"],
+        "image_uuid": item["image_uuid"],
     }
 
 

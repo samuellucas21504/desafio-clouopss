@@ -1,26 +1,35 @@
 from fastapi import APIRouter, Response, status, HTTPException
-
 from ..models.clients import Client
 from ..config.db import conn
 from ..schemas.clients import clientEntity, clientsEntity
 from bson.objectid import ObjectId
+import logging
+
+
+logging.basicConfig(level=logging.WARNING,
+                    format='%(asctime)s :: %(levelname)s ::%(pathname)s :: %(message)s')
 
 client = APIRouter()
 
-
 # GET METHOD
+
 
 @client.get('/clients')
 async def get_clients():
-    return clientsEntity(conn.clients.information.find())
+    clients = clientsEntity(conn.clients.information.find())
+    if clients:
+        return clients
+
+    return status.HTTP_400_BAD_REQUEST
 
 
 # POST METHOD
-
 @client.post('/clients', status_code=status.HTTP_201_CREATED)
 async def create_client(client: Client):
-    conn.clients.information.insert_one(dict(client))
-    return clientsEntity(conn.clients.information.find())
+    if conn.clients.information.insert_one(dict(client)):
+        return clientsEntity(conn.clients.information.find())
+
+    return status.HTTP_422_UNPROCESSABLE_ENTITY
 
 
 # PUT METHOD

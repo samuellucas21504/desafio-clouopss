@@ -43,6 +43,13 @@
     cursor: pointer;
 }
 
+.client--download {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
 .client--update:hover, .client--delete:hover {
     background: #DCBAD4;
 }

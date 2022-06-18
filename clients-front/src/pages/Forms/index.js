@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import blob from "../../images/blob.svg";
 import "./styles.css";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Form() {
 	const axios = require("axios").default;
@@ -10,10 +11,12 @@ export default function Form() {
 		cellphone: "",
 		address: "",
 		profession: "",
+		image_uuid: uuidv4(),
 	};
 
 	const [formsData, setFormsData] = useState(cleanedForm);
-	const [changed, setChanged] = useState(false);
+	const [file, setFile] = useState(null);
+	const [changed, setChanged] = useState(1);
 
 	function cleanForms() {
 		setFormsData(cleanedForm);
@@ -27,37 +30,46 @@ export default function Form() {
 		}));
 	}
 
+	function handleImage(e) {
+		const file = e.target.files[0];
+		setFile(file);
+	}
+
 	function handleSubmit(e) {
 		e.preventDefault();
-
 		const clientData = {
 			name: formsData.client,
 			email: formsData.email,
 			cellphone: formsData.cellphone,
 			address: formsData.address,
 			profession: formsData.profession,
+			image_uuid: formsData.image_uuid,
 		};
 
-		console.log(clientData);
+		let data = new FormData();
 
+		data.append("file", file);
+		console.log(data);
+		axios.post("http://localhost:8000/clients", clientData);
 		axios
-			.post("http://localhost:8000/clients", clientData)
-			.then(function (response) {
+			.post(
+				`http://localhost:8000/images/${formsData.image_uuid}`,
+				data,
+				{
+					headers: {
+						"Content-Type": "multipart/form-data",
+					},
+				}
+			)
+			.then((response) => {
+				console.log(response);
 				if (response.status === 201) {
 					window.alert("Cadastro realizado com sucesso!");
-					setFormsData((prevFormsData) => ({
-						client: "",
-						email: "",
-						cellphone: "",
-						address: "",
-						profession: "",
-					}));
+					cleanForms();
 				}
-			})
-			.catch(function (error) {
-				window.alert("Algo deu errado! Tente novamente!");
 			});
-		setChanged(!changed);
+
+		setChanged((changed) => changed + 1);
 	}
 
 	return (
@@ -74,7 +86,8 @@ export default function Form() {
 						name="client"
 						onChange={handleChange}
 						value={formsData.client}
-					></input>
+						required
+					/>
 				</p>
 				<p>
 					<label htmlFor="email">Email:</label>
@@ -84,7 +97,8 @@ export default function Form() {
 						name="email"
 						onChange={handleChange}
 						value={formsData.email}
-					></input>
+						required
+					/>
 				</p>
 				<p>
 					<label htmlFor="cellphone">Telefone:</label>
@@ -94,7 +108,8 @@ export default function Form() {
 						name="cellphone"
 						onChange={handleChange}
 						value={formsData.cellphone}
-					></input>
+						required
+					/>
 				</p>
 				<p>
 					<label htmlFor="address">Endereço:</label>
@@ -104,7 +119,8 @@ export default function Form() {
 						name="address"
 						onChange={handleChange}
 						value={formsData.address}
-					></input>
+						required
+					/>
 				</p>
 				<p>
 					<label htmlFor="profession">Profissão:</label>
@@ -114,7 +130,18 @@ export default function Form() {
 						name="profession"
 						onChange={handleChange}
 						value={formsData.profession}
-					></input>
+						required
+					/>
+				</p>
+				<p>
+					<label htmlFor="image">Currículo:</label>
+					<input
+						id="image"
+						type="file"
+						name="image"
+						onChange={handleImage}
+						required
+					/>
 				</p>
 			</div>
 			<div className="form--submit">

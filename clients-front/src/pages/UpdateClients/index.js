@@ -48,7 +48,7 @@ export default function UpdateClients(props) {
 						name="name"
 						onChange={handleChange}
 						value={clientsData.name}
-					></input>
+					/>
 				</p>
 				<p>
 					<label htmlFor="email">Email:</label>
@@ -58,7 +58,7 @@ export default function UpdateClients(props) {
 						name="email"
 						onChange={handleChange}
 						value={clientsData.email}
-					></input>
+					/>
 				</p>
 				<p>
 					<label htmlFor="cellphone">Telefone:</label>
@@ -68,7 +68,7 @@ export default function UpdateClients(props) {
 						name="cellphone"
 						onChange={handleChange}
 						value={clientsData.cellphone}
-					></input>
+					/>
 				</p>
 				<p>
 					<label htmlFor="address">Endereço:</label>
@@ -78,7 +78,7 @@ export default function UpdateClients(props) {
 						name="address"
 						onChange={handleChange}
 						value={clientsData.address}
-					></input>
+					/>
 				</p>
 				<p>
 					<label htmlFor="profession">Profissão:</label>
@@ -88,7 +88,7 @@ export default function UpdateClients(props) {
 						name="profession"
 						onChange={handleChange}
 						value={clientsData.profession}
-					></input>
+					/>
 				</p>
 			</div>
 
