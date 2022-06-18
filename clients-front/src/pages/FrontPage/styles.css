@@ -1,0 +1,64 @@
+.frontPage {
+    max-width: 40%;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.frontPage--content {
+    margin-top: 50px;;
+}
+
+.frontPage--title {
+    color: #7A2671;
+    font-weight: 800;
+}
+
+.frontPage--content > p {
+    font-weight: 300;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.react {
+    color: #61dbfb;
+}
+
+.fastapi {
+    color: #05998B;
+}
+
+.mongo {
+    color: #05998B;
+}
+
+.frontPage--content > p > a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 300;
+}
+
+.frontPage--content > p > a:hover {
+    text-decoration: none;
+    color: #7A2671;
+}
+
+.frontPage--checkList {
+    margin: 30px 0 70px 0;
+}
+
+.frontPage--checkList > p {
+    font-family: 'Lato', sans-serif;
+}
+
+.frontPage--checkList > h2 {
+    margin-top: 30px;
+}
+
+.verde {
+    color: #05998B;
+}
+
+.vermelho {
+    color: red;
+}

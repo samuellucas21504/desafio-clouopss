@@ -16,20 +16,14 @@ client = APIRouter()
 
 @client.get('/clients')
 async def get_clients():
-    clients = clientsEntity(conn.clients.information.find())
-    if clients:
-        return clients
-
-    return status.HTTP_400_BAD_REQUEST
+    return clientsEntity(conn.clients.information.find())
 
 
 # POST METHOD
 @client.post('/clients', status_code=status.HTTP_201_CREATED)
 async def create_client(client: Client):
-    if conn.clients.information.insert_one(dict(client)):
-        return clientsEntity(conn.clients.information.find())
 
-    return status.HTTP_422_UNPROCESSABLE_ENTITY
+    return clientsEntity(conn.clients.information.find())
 
 
 # PUT METHOD

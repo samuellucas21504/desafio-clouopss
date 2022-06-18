@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import UpdateClients from "../UpdateClients";
 import Client from "./Client";
 import "./styles.css";
 
