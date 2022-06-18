@@ -6,7 +6,7 @@ Comandos de execução:
 
 `chmod +x run-app-deploy.sh`
 
-`./run-app-deploy.sh --dev`
+`./run-app-deploy.sh`
 
 
 Desafio técnico.
